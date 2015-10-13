@@ -1,0 +1,12 @@
+!#/bin/bash
+chmod +x post-receive
+echo "Running Post Receive Hook"
+
+GIT_REPO=$HOME/project.git
+TMP_GIT_CLONE=$HOME/tmp/project
+PUBLIC_WWW=$HOME/public/project
+
+git clone $GIT_REPO $TMP_GIT_CLONE
+cp -r $TMP_GIT_CLONE/. $PUBLIC_WWW/
+rm -rf $TMP_GIT_CLONE
+exit
